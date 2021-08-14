@@ -8,6 +8,7 @@ const Header = () => {
       <div className="Header">
         <div className="header-container">
           <span className="logo"><img src={bookStore}/></span>
+          {/* The component for search functionality */}
           <SearchBar/>
         </div>
       </div>

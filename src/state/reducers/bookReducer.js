@@ -4,6 +4,8 @@ let initialState = {
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type){
+    // From the data source (/src/data/index.js), fetch all books and apply filters to select only the books with provided name and genre
+    // If name or genre is empty, whole list of books is fetched..
     case "FETCH_BOOKS":
       return {
         arrayOfBooks: action.payload.books.filter((book) => {
@@ -17,6 +19,7 @@ const bookReducer = (state = initialState, action) => {
           return book["name "].includes(action.payload.name) && matchByGenre;
         })
       }
+    // If more of a particular book is brought, increase the stock count of the book 
     case "INCREMENT_STOCK":
       return {
         arrayOfBooks: state.arrayOfBooks.map(book => {
@@ -24,6 +27,7 @@ const bookReducer = (state = initialState, action) => {
           return book;
         })
       }
+    // If a number of a particular book is sold/removed, decrease the stock count of the book
     case "DECREMENT_STOCK":
       return {
         arrayOfBooks: state.arrayOfBooks.map(book => {

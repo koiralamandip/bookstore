@@ -11,6 +11,7 @@ const SelectedBook = ({book}) => {
 
     const dispatch = useDispatch();
 
+    //Handler to decrease the selected amount of this book from the cart
     const decrementHandler = () => {
         dispatch(
             {
@@ -21,6 +22,7 @@ const SelectedBook = ({book}) => {
         dispatch({type: "INCREMENT_STOCK", payload: {id: book.id, count: 1}});
     }
 
+    //Handler to increase the selected amount of this book from the cart 
     const incrementHandler = () => {
         dispatch(
             {
@@ -31,6 +33,7 @@ const SelectedBook = ({book}) => {
         dispatch({type: "DECREMENT_STOCK", payload: {id: book.id, count: 1}});
     }
 
+    // Handler to remove this book from the cart
     const removeBookHandler = () => {
         dispatch({
             type: "REMOVE_FROM_CART",

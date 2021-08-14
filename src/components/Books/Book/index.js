@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '@iconify/react';
 import addToCart from "@iconify/icons-iconoir/add-to-cart";
 import { formattedGenre, formattedPrice, formattedDate, getNPRPlainFromUSDPrice } from '../../../functions';
+
 const Book = ({element}) => {
 
+    // Flag to determine if this book is already added to cart 
     const [isSelected, bookCount] = useSelector((state) => {
         let length = state.cartState.selectedBooks.length;
         let selected = state.cartState.selectedBooks.filter((book) => book.id === element.id);
@@ -17,13 +18,17 @@ const Book = ({element}) => {
 
     const dispatch = useDispatch();
 
+    // Handler to add this book to cart.
+    // If this book is already added to cart, every successive "add to cart" will increase the count without duplicate entry
     const addToCartHandler = () => {
         
         if (!isSelected){
+            // If 5 different books are already selected, display error alert and prevent additional selection of books
             if (bookCount >= 5){
                 window.alert("Sorry, we don't currently allow to select more than 5 different books");
                 return;
             }
+            //else, add the book to cart (new)
             dispatch({type: "ADD_TO_CART", payload: {
                 book: {
                     ...element,
@@ -33,6 +38,7 @@ const Book = ({element}) => {
                 },
             }});
         }else{
+            //else, increment the amount of the selectee book (without creating duplicate entry)
             dispatch({type: "INCREMENT_BOOK", payload: {
                 book: {
                     ...element,
@@ -43,6 +49,7 @@ const Book = ({element}) => {
             }});
         }
 
+        // For each book selection, decrement its stock amount from the store as well.
         dispatch({type: "DECREMENT_STOCK", payload:{
             id: element.id,
             count: 1,
