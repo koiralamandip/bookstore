@@ -26,7 +26,7 @@ const Book = ({element}) => {
             }
             dispatch({type: "ADD_TO_CART", payload: {
                 book: {
-                    id: element.id,
+                    ...element,
                     unitPrice: getNPRPlainFromUSDPrice(element.price),
                     price: getNPRPlainFromUSDPrice(element.price),
                     amount: 1,
@@ -35,7 +35,7 @@ const Book = ({element}) => {
         }else{
             dispatch({type: "INCREMENT_BOOK", payload: {
                 book: {
-                    id: element.id,
+                    ...element,
                     unitPrice: getNPRPlainFromUSDPrice(element.price),
                     price: getNPRPlainFromUSDPrice(element.price),
                     amount: 1,

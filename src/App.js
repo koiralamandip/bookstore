@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
-
+import { arrayOfBooks } from "./data"
 import Header from "./components/Header";
 import Books from "./components/Books";
 import Cart from "./components/Cart";
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({type: "FETCH_BOOKS", payload: {name: "", filter: "", books: arrayOfBooks}})
+  }, [])
   
   return (
     <div className="App">

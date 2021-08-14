@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-
+import { useState } from "react";
 import { Icon } from '@iconify/react';
 import { formattedPriceFromNPR } from "../../../../functions";
 
@@ -10,10 +10,6 @@ import closeBtn from "@iconify/icons-eva/close-circle-fill";
 const SelectedBook = ({book}) => {
 
     const dispatch = useDispatch();
-
-    const thisBook = useSelector((state) => {
-        return (state.bookState.arrayOfBooks.filter((_book) => _book.id === book.id))[0];
-    })
 
     const decrementHandler = () => {
         dispatch(
@@ -52,10 +48,10 @@ const SelectedBook = ({book}) => {
 
     return (
         <div className="selected-book">
-            <div className="selectedbookImage"><img src={thisBook.image}/></div>
-            <div className="selectedTitle">{thisBook["name "]}</div>
+            <div className="selectedbookImage"><img src={book.image}/></div>
+            <div className="selectedTitle">{book["name "]}</div>
             <div className="closeDiv"><Icon className="closeBtn" onClick={removeBookHandler} icon={closeBtn}/></div>
-            <div className="selectedAuthor">{thisBook.author}</div>
+            <div className="selectedAuthor">{book.author}</div>
             <div className="selectedPrice">{formattedPriceFromNPR(book.price)}</div>
             <div className="counter">
                 {
@@ -66,7 +62,8 @@ const SelectedBook = ({book}) => {
                 
                 <span className="count">{book.amount}</span>
                 {
-                    (thisBook.stock > 0)?
+                    console.log(book.stock),
+                    (book.amount < book.stock)?
                         <Icon className="incBtn" onClick={incrementHandler} icon={incBtn}/> : 
                         <Icon className="disabled" icon={incBtn}/>
                 }
