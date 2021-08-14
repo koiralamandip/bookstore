@@ -16,13 +16,13 @@ export const formattedPrice = (price) => {
     price = price.replace("$", "");
     price = Math.floor(price * 118.76);
 
-    price = new Intl.NumberFormat('en-NP', { maximumSignificantDigits: 3 }).format(price);
+    price = new Intl.NumberFormat('en-NP', { maximumSignificantDigits: price.length }).format(price);
     price = "Rs. " + price;
     return price;
 }
 
 export const formattedPriceFromNPR = (price) => {
-    price = new Intl.NumberFormat('en-NP', { maximumSignificantDigits: 3 }).format(price);
+    price = new Intl.NumberFormat('en-NP', { maximumSignificantDigits: price.length }).format(price);
     price = "Rs. " + price;
     return price;
 }
