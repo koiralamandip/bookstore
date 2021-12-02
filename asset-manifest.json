@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d8a9c96d.chunk.css",
+    "main.js": "/static/js/main.f96b5889.chunk.js",
+    "main.js.map": "/static/js/main.f96b5889.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.817f5ee7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.817f5ee7.js.map",
+    "static/js/2.94629ecd.chunk.js": "/static/js/2.94629ecd.chunk.js",
+    "static/js/2.94629ecd.chunk.js.map": "/static/js/2.94629ecd.chunk.js.map",
+    "static/js/3.69c00de0.chunk.js": "/static/js/3.69c00de0.chunk.js",
+    "static/js/3.69c00de0.chunk.js.map": "/static/js/3.69c00de0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.d8a9c96d.chunk.css.map": "/static/css/main.d8a9c96d.chunk.css.map",
+    "static/js/2.94629ecd.chunk.js.LICENSE.txt": "/static/js/2.94629ecd.chunk.js.LICENSE.txt",
+    "static/media/bookStore.025e99c7.svg": "/static/media/bookStore.025e99c7.svg",
+    "static/media/myCart.7238861c.svg": "/static/media/myCart.7238861c.svg",
+    "static/media/App.css": "/static/media/userdata.efae459d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.817f5ee7.js",
+    "static/js/2.94629ecd.chunk.js",
+    "static/css/main.d8a9c96d.chunk.css",
+    "static/js/main.f96b5889.chunk.js"
+  ]
+}
